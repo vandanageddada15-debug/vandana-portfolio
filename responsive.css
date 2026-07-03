@@ -1,0 +1,220 @@
+/* ==========================================
+        TABLETS (992px and below)
+========================================== */
+
+@media (max-width:992px){
+
+    section{
+        padding:70px 8%;
+    }
+
+    .hero-container{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .hero-image img{
+        width:280px;
+    }
+
+    .hero-text h1{
+        font-size:48px;
+    }
+
+    .hero-text h2{
+        font-size:24px;
+    }
+
+    .description{
+        margin:auto;
+    }
+
+    .projects-container,
+    .skills-container,
+    .certifications-container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* ==========================================
+        MOBILE (768px and below)
+========================================== */
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .logo h2{
+        font-size:30px;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text h2{
+        font-size:22px;
+    }
+
+    .hero-text h3{
+        font-size:20px;
+    }
+
+    .hello{
+        font-size:18px;
+    }
+
+    .description{
+        font-size:16px;
+    }
+
+    .hero-image img{
+        width:230px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .about-text h3{
+        font-size:26px;
+    }
+
+    .timeline-content h3{
+        font-size:22px;
+    }
+
+    .timeline-content h4{
+        font-size:18px;
+    }
+
+}
+
+
+/* ==========================================
+        SMALL MOBILE (480px and below)
+========================================== */
+
+@media (max-width:480px){
+
+    section{
+        padding:60px 6%;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+    }
+
+    .hero-text h2{
+        font-size:20px;
+    }
+
+    .hero-text h3{
+        font-size:18px;
+    }
+
+    .description{
+        font-size:15px;
+    }
+
+    .hero-image img{
+        width:180px;
+    }
+
+    .logo h2{
+        font-size:28px;
+    }
+
+    .nav-links{
+        gap:10px;
+        font-size:14px;
+    }
+
+    .project-card,
+    .skill-card,
+    .certificate-card{
+        padding:20px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .project-image{
+
+        height:180px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .project-image{
+
+        height:160px;
+
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .resume{
+
+        padding:100px 20px 60px;
+
+    }
+
+    .resume h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .resume-viewer iframe{
+
+        height:600px;
+
+    }
+
+    .resume-buttons{
+
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+}
