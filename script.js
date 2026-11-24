@@ -1,140 +1,63 @@
-console.log("Welcome to Vandana Portfolio");
+/* Vandana Geddada Portfolio – refreshed interactions */
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.querySelector(".nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+    const topBtn = document.getElementById("topBtn");
 
-// Smooth scrolling for navigation links
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener('click', function(e) {
-
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-
-            behavior: 'smooth'
-
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+            const icon = menuToggle.querySelector("i");
+            if (icon) icon.className = isOpen ? "fas fa-xmark" : "fas fa-bars";
         });
 
-    });
-
-});
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (scrollY >= sectionTop) {
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-const cards = document.querySelectorAll(
-
-".project-card,.skill-card,.certificate-card,.timeline-content,.contact-card,.step"
-
-);
-
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-}, {
-        threshold:0.2
-});
-
-cards.forEach(card=>{
-
-    observer.observe(card);
-
-});
-
-const topBtn = document.getElementById("topBtn");
-
-window.onscroll = function(){
-
-    if(document.documentElement.scrollTop > 400){
-
-        topBtn.style.display="block";
-
+        navItems.forEach(link => link.addEventListener("click", () => {
+            nav.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+            const icon = menuToggle.querySelector("i");
+            if (icon) icon.className = "fas fa-bars";
+        }));
     }
 
-    else{
+    const sections = document.querySelectorAll("main section, body > section, section[id]");
+    const updateNavigation = () => {
+        let current = "";
+        sections.forEach(section => {
+            if (window.scrollY >= section.offsetTop - 160) current = section.id;
+        });
+        navItems.forEach(link => {
+            const active = link.getAttribute("href") === "#" + current;
+            link.classList.toggle("active", active);
+            if (active) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+        });
+        if (topBtn) topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+    };
+    window.addEventListener("scroll", updateNavigation, { passive: true });
+    updateNavigation();
 
-        topBtn.style.display="none";
-
+    if (topBtn) {
+        topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
 
-};
-
-topBtn.onclick=function(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-};
-
-const text = "Aspiring Data Analyst";
-
-let index = 0;
-
-function type(){
-
-    if(index < text.length){
-
-        document.getElementById("typing").innerHTML += text.charAt(index);
-
-        index++;
-
-        setTimeout(type,100);
-
+    const revealItems = document.querySelectorAll(
+        ".project-card, .skill-card, .certificate-card, .timeline-content, .contact-card, .step"
+    );
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => observer.observe(item));
+    } else {
+        revealItems.forEach(item => item.classList.add("show"));
     }
-
-}
-
-type();
-
-
-
-
-const menuToggle = document.getElementById("menu-toggle");
-const navLinksContainer = document.querySelector(".nav-links");
-
-menuToggle.addEventListener("click", () => {
-    navLinksContainer.classList.toggle("active");
 });

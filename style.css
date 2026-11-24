@@ -1442,3 +1442,58 @@ footer{
 .certificate-card:hover .certificate-image{
     transform:scale(1.03);
 }
+
+/* ===========================
+   PORTFOLIO REFRESH – NOV 2026
+=========================== */
+:root {
+    --accent: #a78bfa;
+    --accent-strong: #8b5cf6;
+    --surface: #172238;
+    --surface-soft: #1e293b;
+}
+body { background: #0b1220; }
+.navbar { background: rgba(15, 23, 42, .96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(148,163,184,.14); }
+.logo h2 { letter-spacing: 1px; }
+.nav-links a { font-size: .95rem; }
+.nav-links a.active { color: var(--accent); }
+section { scroll-margin-top: 88px; }
+.hero-container { max-width: 1200px; margin: 0 auto; }
+.hero-text h1 { line-height: 1.12; letter-spacing: -1.5px; }
+.hero-text h3 { color: var(--accent); }
+.description { line-height: 1.85; }
+.about-container, .timeline-content, .skill-card, .project-card,
+.certificate-card, .learning-card, .contact-card, .resume-card {
+    background: linear-gradient(145deg, #1b2940, #152035);
+    border: 1px solid rgba(167,139,250,.16);
+    box-shadow: 0 12px 32px rgba(0,0,0,.16);
+}
+.skill-card, .project-card, .certificate-card, .timeline-content,
+.contact-card, .step { border-top-color: var(--accent-strong); }
+.section-title h2 { color: var(--accent); }
+.year, .resume-btn, .project-buttons a, .resume-download,
+#topBtn { background: var(--accent-strong); }
+.project-card { display: flex; flex-direction: column; }
+.project-card .project-buttons { margin-top: auto; padding-top: 12px; }
+.project-card h4 { margin-top: 16px; color: #e2e8f0; }
+.project-placeholder {
+    min-height: 180px; display: grid; place-items: center;
+    margin-bottom: 20px; border-radius: 12px;
+    background: linear-gradient(135deg, #263653, #312e61);
+    border: 1px solid rgba(167,139,250,.25); font-size: 3rem;
+}
+.certificate-image { object-fit: contain; background: #fff; }
+.contact-card a { overflow-wrap: anywhere; }
+.menu-toggle {
+    border: 0; background: transparent; padding: 8px 10px;
+    border-radius: 8px; line-height: 1;
+}
+.menu-toggle:focus-visible, a:focus-visible, button:focus-visible {
+    outline: 3px solid #c4b5fd; outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    .project-card, .skill-card, .certificate-card, .timeline-content,
+    .contact-card, .step { opacity: 1; transform: none; }
+}
