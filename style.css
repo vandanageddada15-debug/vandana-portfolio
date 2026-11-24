@@ -1304,3 +1304,85 @@ p {
         transform: none !important;
     }
 }
+
+
+/* =====================================
+   FINAL ANIMATION FIX
+===================================== */
+
+/* Smooth font rendering */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll reveal initial state */
+
+.project-card,
+.skill-card,
+.certificate-card,
+.timeline-content,
+.contact-card,
+.step {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+/* Visible after scrolling */
+
+.project-card.show,
+.skill-card.show,
+.certificate-card.show,
+.timeline-content.show,
+.contact-card.show,
+.step.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+/* Smooth hover */
+
+.project-card:hover,
+.skill-card:hover,
+.certificate-card:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Scroll-to-top visibility */
+
+#topBtn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease;
+}
+
+#topBtn.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .skill-card,
+    .certificate-card,
+    .timeline-content,
+    .contact-card,
+    .step {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
