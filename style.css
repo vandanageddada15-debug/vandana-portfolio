@@ -1145,3 +1145,162 @@ button:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =====================================
+   FONT AND ANIMATION REFINEMENT
+===================================== */
+
+/* FONT SETTINGS */
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #475569;
+    line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6,
+.logo,
+.nav-logo,
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    color: #172554;
+}
+
+h1 {
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-weight: 700;
+    letter-spacing: -0.7px;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+/* BODY TEXT */
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    color: #475569;
+}
+
+/* NAVIGATION */
+
+.nav-links a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+/* BUTTON ANIMATION */
+
+.btn,
+.resume-btn,
+.project-btn,
+.resume-view,
+.resume-download {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.btn:hover,
+.resume-btn:hover,
+.project-btn:hover,
+.resume-view:hover,
+.resume-download:hover {
+    transform: translateY(-2px);
+}
+
+/* CARD ANIMATIONS */
+
+.project-card,
+.skill-card,
+.certificate-card,
+.education-card,
+.timeline-content,
+.contact-card,
+.step,
+.learning-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.certificate-card:hover,
+.education-card:hover,
+.timeline-content:hover,
+.contact-card:hover,
+.step:hover,
+.learning-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+}
+
+/* IMAGE ANIMATION */
+
+.home-image img,
+.hero-image img {
+    transition: transform 0.35s ease;
+}
+
+.home-image img:hover,
+.hero-image img:hover {
+    transform: scale(1.025);
+}
+
+/* REMOVE UNWANTED INITIAL INVISIBILITY */
+
+.project-card,
+.skill-card,
+.certificate-card,
+.timeline-content,
+.contact-card,
+.step {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* SMOOTH SCROLL REVEAL */
+
+.show {
+    animation: gentleReveal 0.65s ease both;
+}
+
+@keyframes gentleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* NO ANIMATIONS WHEN USER PREFERS REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+        transform: none !important;
+    }
+}
